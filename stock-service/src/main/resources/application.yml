@@ -1,0 +1,12 @@
+server:
+  port: 3000
+
+auth:
+  audience: stock-service
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-dnqy-t57.eu.auth0.com/

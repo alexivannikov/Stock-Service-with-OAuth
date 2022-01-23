@@ -1,0 +1,19 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<body>
+<div sec:authorize="isAnonymous()">
+    <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
+</div>
+<div sec:authorize="isAuthenticated()">
+    <img th:src="${profile.get('picture')}" th:attr="alt=${profile.get('name')}"/>
+    <h2 th:text="${profile.get('name')}"></h2>
+    <p th:text="${profile.get('email')}"></p>
+    <a th:href="@{/logout}">Log Out</a>
+</div>
+<div sec:authorize="isAuthenticated()">
+    <form th:action="@{/stock-data}" th:object="${tickets}" method="post">
+        <input type="text" id="data" name="data" />
+        <button type="submit">Get tickets</button>
+    </form>
+</div>
+</body>
+</html>

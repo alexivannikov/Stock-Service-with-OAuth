@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+service:
+  stock:
+    uri: http://localhost:3000
+    path:
+      stock-quotes: /stock-data
+    audience: stock-service
+
+spring:
+  security:
+    enable-csrf: false
+    oauth2:
+      client:
+        registration:
+          auth0:
+            client-id: 46Sk9uabAGtBbOvzQnr7LL9bkA5CkLL6
+            client-secret: R0AD1fA1SggStzASp_kxe3W5YxLx5R5WmgmirVDwXnG7I5rvpjC49s9p3sMIt8fC
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          auth0:
+            issuer-uri: https://dev-z6wzbvpa.us.auth0.com/
